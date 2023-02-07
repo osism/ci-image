@@ -1,0 +1,17 @@
+---
+ - job:
+     name: ci-image-build
+     pre-run: playbooks/pre.yml
+     run: playbooks/build.yml
+     timeout: 1800
+
+ - job:
+     name: ci-image-build-zed
+     parent: ci-image-build
+     vars:
+       version_openstack: zed
+
+ - project:
+     post:
+       jobs:
+         - ci-image-build-zed
