@@ -1,6 +1,7 @@
 ---
 - job:
     name: ci-image-build
+    parent: base
     pre-run: playbooks/pre.yml
     run: playbooks/build.yml
     timeout: 1800
