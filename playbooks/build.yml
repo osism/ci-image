@@ -1,5 +1,5 @@
 ---
- - name: Build ci-image
+ - name: Build image
    hosts: all
 
    vars:
