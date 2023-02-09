@@ -1,3 +1,4 @@
+# TESTING
 ---
  - name: Build image
    hosts: all
