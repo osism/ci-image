@@ -16,6 +16,8 @@
     check:
       jobs:
         - ci-image-build-zed
+        - tox-linters
     post:
       jobs:
         - ci-image-build-zed
+        - tox-linters
