@@ -13,11 +13,13 @@
       version_openstack: zed
 
 - project:
+    merge-mode: squash-merge
     check:
       jobs:
-        - ci-image-build-zed
         - tox-linters
+        - ci-image-build-zed
     post:
       jobs:
-        - ci-image-build-zed
         - tox-linters
+        - ci-image-build-zed
+
