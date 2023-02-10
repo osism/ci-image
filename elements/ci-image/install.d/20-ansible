@@ -18,3 +18,4 @@ ansible-playbook -i localhost, /tmp/in_target.d/diskimage.yml
 # cleanup
 
 rm -rf /root/.ansible
+apt-get remove --yes ansible
