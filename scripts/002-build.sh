@@ -5,7 +5,7 @@ export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive, OpenStack"
 
 disk-image-create \
   -a amd64 \
-  -o testbed \
+  -o ci-image \
   --image-size 8 \
   vm ubuntu ci-image
 
