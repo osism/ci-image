@@ -41,14 +41,14 @@
     parent: ci-image-build
     vars:
       version_openstack: zed
-      upload: false
+      upload_image: false
 
 - job:
     name: ci-image-publish-zed
     parent: ci-image-build
     vars:
       version_openstack: zed
-      upload: true
+      upload_image: true
 
 - project:
     merge-mode: squash-merge
