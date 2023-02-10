@@ -4,6 +4,7 @@
 
    vars:
      version_openstack: zed
+     upload: false
 
    tasks:
      - name: Run install script
@@ -25,3 +26,15 @@
            export OPENSTACK_VERSION={{ version_openstack }}
            export PATH=/home/zuul/.local/bin:$PATH
            scripts/002-build.sh
+
+     - name: Run upload script
+       ansible.builtin.shell:
+         executable: /bin/bash
+         chdir: "{{ zuul.project.src_dir }}"
+         cmd: |
+           set -e
+           set -x
+          ./mc alias set minio https://minio.services.osism.tech ${{ MINIO_ACCESS_KEY.MINIO_ACCESS_KEY }} ${{ MINIO_SECRET_KEY.MINIO_SECRET_KEY }}
+          ./mc cp ci-image.qcow2 minio/ci-image
+          ./mc policy set download minio/ci-image/ci-image.qcow2
+       when: upload|bool

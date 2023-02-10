@@ -7,6 +7,6 @@ disk-image-create \
   -a amd64 \
   -o testbed \
   --image-size 8 \
-  vm ubuntu testbed
+  vm ubuntu ci-image
 
-qemu-img info testbed.qcow2
+qemu-img info ci-image.qcow2

@@ -1,4 +1,34 @@
 ---
+- secret:
+    name: MINIO_ACCESS_KEY
+    data:
+      MINIO_ACCESS_KEY: !encrypted/pkcs1-oaep
+        - t1gcULZkezAaDllpTjpSxLbIa42rem7Wy2V1fU/EELaoUS2aDmS31/BTnZr6V+yeyrwH9
+          LD6/TEglbNxFHH0KurW0bfMZ/gMw9jLGYcXw/QunDoAWrZDhwGIdvo0/ykMViVMhGmkMn
+          QnlkTgplgbN3oEzBW4Oa/hjVV9icTKzYtAVjynjrX87c2LWhHj0vnaS+4LrkmKPWLenkP
+          YAYk93j9dpTIlPy8fhm+mGFGcigIBbkFnFr8irl7GwdXNbYJtcIvdOFwSHSDrJyXsAncm
+          p7iL5YNKhyAQirQ6gS+m5BC7MJI5N4KQxyMcy0eiIRPrGfMzshKRhZHfIOF0FbtlSwUhI
+          TRgJBQ2ldWyRFmP0OallNnlb9DjEN2GGgPPL1Sen9ycN2faKcxlsh7nxk6QEVjXm76gfY
+          7wd76HmFODjrEzxU1jIUKYNC/pAd0BJfpkNHq9rnfQm+I52bCIvR/bZqZBpYsoDo4oFw+
+          /2Xw7TdgQb4v7zVznustWlZw7Bc2gzJ4dz8FVemw1iXZBDpsOis2XpP/9MondDzflAXv7
+          63yF/k7a4OtcURPkSpYO3swN/sYLjjAPUuVxAKaxS0ItoXRnowRI1SZuLQFnY/5ModFPj
+          oXJ7T42GKQXY4whmyFgjIcJJ/hcf1FMBj1oZqyWyd7NUNVV1P6LPZIKrWAghxw=
+
+- secret:
+    name: MINIO_SECRET_KEY
+    data:
+      MINIO_SECRET_KEY: !encrypted/pkcs1-oaep
+        - PX4B2Ixh4CppCVAZ6cUEt7XsfN+u2r0qSI5rrLptKwDX2KuY25cxqC0KcFFyGphHOtM7V
+          yw3TtEAb8zzmC29cNJJvpNNaP7T1oiMZ7w7YzcKu/bFWn1N26X+zbaABqkzrd27/BXDch
+          0yRNoqd4CatNoNO6kiKD9C0KqfFaZmv6pavxEppK79qrmpfKqziQ+W3XG9oqwSDiOIaFB
+          knunxVF2l8tlvWVtANijEJArbDs7jTTXTYpPLAIRrbqoiMSIH6zH9cjS4PS0/OWmQmTd9
+          WZxCHmQEZBscRXjSFB/kmc3uEYmO49Pk38t1JXlh/E6sVqa1cWFNwvPiittUrf8ZGmflf
+          HpYxwQRFt+sBMl2sz7XB6xmrsfWcdyF5gUnl78z1hAftxYhE0qmHY8UFU2LrhRKRrbiTP
+          V1uHAfwIR/18+iXgg/p4l5zvbbVW4osta+wyurRKvGsqNIaj0lxAgk5EtrLEDNV3YlilX
+          /9mW1pI6YNsOA5pANqT5r14KQusDhDDxbx0FyMIj/o8B5uYgRtZqY1uVWNGJAdaCF0z1z
+          mxTkx0Lf7tE4MEVwN5yOhCY7cQs7Gac5G1yy5XwBnNeFvWvv6sfPdlZ+VvSi2y7fOyPA7
+          rhx3QCJ0xR0HmrM9lmCrxsIZB4cUONuFvyt18VdKwhPrUACSxFdJIXqwsPvvE4=
+
 - job:
     name: ci-image-build
     parent: base
@@ -11,6 +41,14 @@
     parent: ci-image-build
     vars:
       version_openstack: zed
+      upload: false
+
+- job:
+    name: ci-image-publish-zed
+    parent: ci-image-build
+    vars:
+      version_openstack: zed
+      upload: true
 
 - project:
     merge-mode: squash-merge
@@ -20,5 +58,5 @@
         - ci-image-build-zed
     post:
       jobs:
-        - ci-image-build-zed
-
+        - ci-image-publish-zed:
+            branches: main
