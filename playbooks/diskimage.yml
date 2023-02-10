@@ -11,6 +11,13 @@
   roles:
     - osism.commons.operator
     - osism.commons.packages
+    - osism.commons.motd
+    - osism.services.rng
+    - osism.services.smartd
+    - osism.commons.cleanup
+    - osism.services.chrony
+    - osism.services.lldpd
+    - osism.services.journald
 
 - name: Apply role docker
   hosts: localhost
