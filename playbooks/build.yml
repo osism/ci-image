@@ -1,40 +1,40 @@
 ---
- - name: Build image
-   hosts: all
+- name: Build image
+  hosts: all
 
-   vars:
-     version_openstack: zed
-     upload: false
+  vars:
+    version_openstack: zed
+    upload: false
 
-   tasks:
-     - name: Run install script
-       ansible.builtin.shell:
-         executable: /bin/bash
-         chdir: "{{ zuul.project.src_dir }}"
-         cmd: |
-           set -e
-           set -x
-           scripts/001-install.sh
+  tasks:
+    - name: Run install script
+      ansible.builtin.shell:
+        executable: /bin/bash
+        chdir: "{{ zuul.project.src_dir }}"
+        cmd: |
+          set -e
+          set -x
+          scripts/001-install.sh
 
-     - name: Run build script
-       ansible.builtin.shell:
-         executable: /bin/bash
-         chdir: "{{ zuul.project.src_dir }}"
-         cmd: |
-           set -e
-           set -x
-           export OPENSTACK_VERSION={{ version_openstack }}
-           export PATH=/home/zuul/.local/bin:$PATH
-           scripts/002-build.sh
+    - name: Run build script
+      ansible.builtin.shell:
+        executable: /bin/bash
+        chdir: "{{ zuul.project.src_dir }}"
+        cmd: |
+          set -e
+          set -x
+          export OPENSTACK_VERSION={{ version_openstack }}
+          export PATH=/home/zuul/.local/bin:$PATH
+          scripts/002-build.sh
 
-     - name: Run upload script
-       ansible.builtin.shell:
-         executable: /bin/bash
-         chdir: "{{ zuul.project.src_dir }}"
-         cmd: |
-           set -e
-           set -x
+    - name: Run upload script
+      ansible.builtin.shell:
+        executable: /bin/bash
+        chdir: "{{ zuul.project.src_dir }}"
+        cmd: |
+          set -e
+          set -x
           ./mc alias set minio https://minio.services.osism.tech ${{ MINIO_ACCESS_KEY.MINIO_ACCESS_KEY }} ${{ MINIO_SECRET_KEY.MINIO_SECRET_KEY }}
           ./mc cp ci-image.qcow2 minio/ci-image
           ./mc policy set download minio/ci-image/ci-image.qcow2
-       when: upload|bool
+      when: upload|bool
