@@ -1,6 +1,6 @@
 ---
 - secret:
-    name: MINIO_ACCESS_KEY
+    name: MINIO
     data:
       MINIO_ACCESS_KEY: !encrypted/pkcs1-oaep
         - t1gcULZkezAaDllpTjpSxLbIa42rem7Wy2V1fU/EELaoUS2aDmS31/BTnZr6V+yeyrwH9
@@ -13,10 +13,6 @@
           /2Xw7TdgQb4v7zVznustWlZw7Bc2gzJ4dz8FVemw1iXZBDpsOis2XpP/9MondDzflAXv7
           63yF/k7a4OtcURPkSpYO3swN/sYLjjAPUuVxAKaxS0ItoXRnowRI1SZuLQFnY/5ModFPj
           oXJ7T42GKQXY4whmyFgjIcJJ/hcf1FMBj1oZqyWyd7NUNVV1P6LPZIKrWAghxw=
-
-- secret:
-    name: MINIO_SECRET_KEY
-    data:
       MINIO_SECRET_KEY: !encrypted/pkcs1-oaep
         - PX4B2Ixh4CppCVAZ6cUEt7XsfN+u2r0qSI5rrLptKwDX2KuY25cxqC0KcFFyGphHOtM7V
           yw3TtEAb8zzmC29cNJJvpNNaP7T1oiMZ7w7YzcKu/bFWn1N26X+zbaABqkzrd27/BXDch
@@ -50,10 +46,8 @@
       version_openstack: zed
       upload_image: true
     secrets:
-      - name: MINIO_ACCESS_KEY
-        secret: MINIO_ACCESS_KEY
-      - name: MINIO_SECRET_KEY
-        secret: MINIO_SECRET_KEY
+      - name: minio
+        secret: MINIO
 
 - project:
     merge-mode: squash-merge
