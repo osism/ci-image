@@ -1,6 +1,6 @@
 ---
 - secret:
-    name: MINIO
+    name: minio
     data:
       MINIO_ACCESS_KEY: !encrypted/pkcs1-oaep
         - t1gcULZkezAaDllpTjpSxLbIa42rem7Wy2V1fU/EELaoUS2aDmS31/BTnZr6V+yeyrwH9
@@ -46,8 +46,7 @@
       version_openstack: zed
       upload_image: true
     secrets:
-      - name: minio
-        secret: MINIO
+     - minio
 
 - project:
     merge-mode: squash-merge
