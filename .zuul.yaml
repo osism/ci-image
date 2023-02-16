@@ -49,6 +49,11 @@
     vars:
       version_openstack: zed
       upload_image: true
+    secrets:
+      - name: MINIO_ACCESS_KEY
+        secret: MINIO_ACCESS_KEY
+      - name: MINIO_SECRET_KEY
+        secret: MINIO_SECRET_KEY
 
 - project:
     merge-mode: squash-merge
