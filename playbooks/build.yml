@@ -30,7 +30,7 @@
         cmd: |
           set -e
           set -x
-          ./mc alias set minio https://minio.services.osism.tech ${{ minio.MINIO_ACCESS_KEY }} ${{ minio.MINIO_SECRET_KEY }}
+          ./mc alias set minio https://minio.services.osism.tech {{ minio.MINIO_ACCESS_KEY }} {{ minio.MINIO_SECRET_KEY }}
           ./mc cp ci-image.qcow2 minio/ci-image
           ./mc policy set download minio/ci-image/ci-image.qcow2
       when: upload_image|bool
