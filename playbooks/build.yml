@@ -28,6 +28,8 @@
         executable: /bin/bash
         chdir: "{{ zuul.project.src_dir }}"
         cmd: |
+          wget https://dl.min.io/client/mc/release/linux-amd64/mc
+          chmod +x mc
           ./mc alias set minio https://minio.services.osism.tech {{ minio.MINIO_ACCESS_KEY | trim }} {{ minio.MINIO_SECRET_KEY | trim }}
           ./mc cp ci-image.qcow2 minio/ci-image
           ./mc policy set download minio/ci-image/ci-image.qcow2
