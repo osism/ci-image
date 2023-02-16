@@ -31,8 +31,6 @@
     pre-run: playbooks/pre.yml
     run: playbooks/build.yml
     timeout: 1800
-    secrets:
-     - minio
 
 - job:
     name: ci-image-build-zed
@@ -47,6 +45,10 @@
     vars:
       version_openstack: zed
       upload_image: true
+    secrets:
+      - name: minio
+        secret: minio
+        pass-to-parent: true
 
 - project:
     merge-mode: squash-merge
