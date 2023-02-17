@@ -8,6 +8,8 @@
     operator_user: dragon
     operator_group: dragon
 
+    cleanup_cloudinit: false
+
   roles:
     - osism.commons.operator
     - osism.commons.packages
