@@ -1,6 +1,6 @@
 ---
 - secret:
-    name: minio
+    name: MINIO
     data:
       MINIO_ACCESS_KEY: !encrypted/pkcs1-oaep
         - t1gcULZkezAaDllpTjpSxLbIa42rem7Wy2V1fU/EELaoUS2aDmS31/BTnZr6V+yeyrwH9
@@ -47,7 +47,7 @@
       upload_image: true
     secrets:
       - name: minio
-        secret: minio
+        secret: MINIO
         pass-to-parent: true
 
 - project:
