@@ -8,5 +8,4 @@ set -o pipefail
 
 # install ansible
 
-add-apt-repository --yes ppa:ansible/ansible
 apt-get install --yes ansible
