@@ -13,7 +13,6 @@
     - osism.commons.packages
     - osism.commons.motd
     - osism.services.rng
-    - osism.services.smartd
     - osism.commons.cleanup
     - osism.services.chrony
     - osism.services.lldpd
