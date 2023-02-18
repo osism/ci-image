@@ -3,15 +3,6 @@
   hosts: all
 
   tasks:
-    - name: Run install script
-      ansible.builtin.shell:
-        executable: /bin/bash
-        chdir: "{{ zuul.project.src_dir }}"
-        cmd: |
-          set -e
-          set -x
-          scripts/001-install.sh
-
     - name: Run build script
       ansible.builtin.shell:
         executable: /bin/bash
@@ -21,7 +12,17 @@
           set -x
           export OPENSTACK_VERSION={{ version_openstack }}
           export PATH=/home/zuul/.local/bin:$PATH
-          scripts/002-build.sh
+          export ELEMENTS_PATH=./elements
+          export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive, OpenStack"
+          export DIB_RELEASE=jammy
+
+          disk-image-create \
+            -a amd64 \
+            -o ci-image \
+            --image-size 8 \
+            vm ubuntu ci-image
+
+          qemu-img info ci-image.qcow2
 
     - name: Run upload script
       ansible.builtin.shell:
