@@ -6,6 +6,10 @@ fi
 set -eu
 set -o pipefail
 
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US
+export LC_ALL=
+
 # install required ansible collections
 
 ansible-galaxy collection install git+https://github.com/osism/ansible-collection-services
@@ -18,4 +22,3 @@ ansible-playbook -i localhost, /tmp/in_target.d/diskimage.yml
 # cleanup
 
 rm -rf /root/.ansible
-apt-get remove --yes ansible
