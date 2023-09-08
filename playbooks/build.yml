@@ -10,7 +10,6 @@
         cmd: |
           set -e
           set -x
-          export OPENSTACK_VERSION={{ version_openstack }}
           export PATH=/home/zuul/.local/bin:$PATH
           export ELEMENTS_PATH=./elements
           export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive, OpenStack"

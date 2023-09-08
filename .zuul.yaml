@@ -1,6 +1,6 @@
 ---
 - secret:
-    name: MINIO
+    name: SECRET_CI_IMAGE
     data:
       MINIO_ACCESS_KEY: !encrypted/pkcs1-oaep
         - K13hyZjCJZSb7js2oN9VfoDJj5XBgJJC5Ms4S6Bkt1vq0+EfSLHD4vjnC0VcNw3izanF5
@@ -27,27 +27,21 @@
 
 - job:
     name: ci-image-build
-    parent: base
+    nodeset: ubuntu-jammy-large
     pre-run: playbooks/pre.yml
     run: playbooks/build.yml
     timeout: 1800
-
-- job:
-    name: ci-image-build-zed
-    parent: ci-image-build
     vars:
-      version_openstack: zed
       upload_image: false
 
 - job:
-    name: ci-image-publish-zed
+    name: ci-image-publish
     parent: ci-image-build
     vars:
-      version_openstack: zed
       upload_image: true
     secrets:
       - name: minio
-        secret: MINIO
+        secret: SECRET_CI_IMAGE
         pass-to-parent: true
 
 - project:
@@ -55,8 +49,8 @@
     default-branch: main
     check:
       jobs:
-        - ci-image-build-zed
+        - ci-image-build
     post:
       jobs:
-        - ci-image-publish-zed:
+        - ci-image-publish:
             branches: main
