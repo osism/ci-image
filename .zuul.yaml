@@ -33,6 +33,9 @@
     timeout: 1800
     vars:
       upload_image: false
+    irrelevant-files:
+      - ^LICENSE$
+      - ^README.md$
 
 - job:
     name: ci-image-publish
