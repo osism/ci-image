@@ -15,6 +15,7 @@
     required_packages_extra:
       - linux-generic-hwe-22.04
       - python3-netaddr
+      - skopeo
 
   roles:
     - osism.commons.operator
@@ -53,3 +54,50 @@
 
   roles:
     - role: osism.commons.docker_compose
+
+- name: Apply role docker
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars:
+    images:
+      - osism:0.20231129.2  # 5.3.0
+      - osism:0.20230902.0  # 6.0.2
+      - ceph-ansible:5.3.0
+      - ceph-ansible:6.0.2
+      - kolla-ansible:5.3.0
+      - kolla-ansible:6.0.2
+      - osism-ansible:5.3.0
+      - osism-ansible:6.0.2
+
+    images_ceph:
+      - ceph-daemon:17.2.6
+
+    images_openstack:
+      - keystone:22.0.1.20230902  # 5.3.0
+      - keystone:23.0.1.20230919  # 6.0.2
+
+  tasks:
+    - name: Create images directory
+      ansible.builtin.file:
+        path: /home/dragon/images
+        owner: dragon
+        group: dragon
+        state: directory
+        mode: 0755
+
+    - name: Copy stable manager images
+      ansible.builtin.command:
+        cmd: "skopeo copy docker://osism.harbor.regio.digital/osism/{{ item }} dir:/home/dragon/images/{{ item }}"
+      loop: "{{ images }}"
+
+    - name: Copy stable ceph images
+      ansible.builtin.command:
+        cmd: "skopeo copy docker://osism.harbor.regio.digital/osism/{{ item }} dir:/home/dragon/images/{{ item }}"
+      loop: "{{ images_ceph }}"
+
+    - name: Copy stable openstack images
+      ansible.builtin.command:
+        cmd: "skopeo copy docker://osism.harbor.regio.digital/kolla/release/{{ item }} dir:/home/dragon/images/{{ item }}"
+      loop: "{{ images_openstack }}"
