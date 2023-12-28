@@ -68,6 +68,7 @@
       - "inventory-reconciler:6.0.2"
       - kolla-ansible:5.3.0
       - kolla-ansible:6.0.2
+      - netbox:v3.4.8
       - osism-ansible:5.3.0
       - osism-ansible:6.0.2
       - osism:0.20230902.0  # 6.0.2
