@@ -15,7 +15,7 @@ apt-get install --yes ansible python3-pip
 ansible-playbook -i localhost, /tmp/in_target.d/locales.yml
 rm -rf /root/.ansible
 apt-get remove --yes ansible
+apt-get autoremove --yes
 
 # install ansible from pypi
-
-pip3 install 'ansible==8.0.0'
+pip3 install --no-cache-dir 'ansible-core>=2.15.0,<2.16.0'
