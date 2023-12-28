@@ -34,6 +34,7 @@
     vars:
       upload_image: false
     irrelevant-files:
+      - ^.images.yml$
       - ^LICENSE$
       - ^README.md$
 
