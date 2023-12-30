@@ -90,19 +90,43 @@
         state: directory
         mode: 0755
 
+    - name: Create images/manager directory
+      ansible.builtin.file:
+        path: /opt/images/manager
+        owner: dragon
+        group: dragon
+        state: directory
+        mode: 0755
+
+    - name: Create images/manager directory
+      ansible.builtin.file:
+        path: /opt/images/manager
+        owner: dragon
+        group: dragon
+        state: directory
+        mode: 0755
+
+    - name: Create images/node directory
+      ansible.builtin.file:
+        path: /opt/images/node
+        owner: dragon
+        group: dragon
+        state: directory
+        mode: 0755
+
     - name: Copy stable manager images
       ansible.builtin.command:
-        cmd: "skopeo copy docker://osism.harbor.regio.digital/osism/{{ item }} dir:/home/dragon/images/{{ item }}"
+        cmd: "skopeo copy docker://osism.harbor.regio.digital/osism/{{ item }} dir:/opt/images/manager/{{ item }}"
       loop: "{{ images }}"
 
     - name: Copy stable ceph images
       ansible.builtin.command:
-        cmd: "skopeo copy docker://osism.harbor.regio.digital/osism/{{ item }} dir:/home/dragon/images/{{ item }}"
+        cmd: "skopeo copy docker://osism.harbor.regio.digital/osism/{{ item }} dir:/opt/images/node/{{ item }}"
       loop: "{{ images_ceph }}"
 
     - name: Copy stable openstack images
       ansible.builtin.command:
-        cmd: "skopeo copy docker://osism.harbor.regio.digital/kolla/release/{{ item }} dir:/home/dragon/images/{{ item }}"
+        cmd: "skopeo copy docker://osism.harbor.regio.digital/kolla/release/{{ item }} dir:/opt/images/node/{{ item }}"
       loop: "{{ images_openstack }}"
 
     - name: Create /etc/osism-ci-image file
