@@ -55,7 +55,7 @@
   roles:
     - role: osism.commons.docker_compose
 
-- name: Apply role docker
+- name: Other preparations
   hosts: localhost
   connection: local
   gather_facts: true
@@ -104,3 +104,11 @@
       ansible.builtin.command:
         cmd: "skopeo copy docker://osism.harbor.regio.digital/kolla/release/{{ item }} dir:/home/dragon/images/{{ item }}"
       loop: "{{ images_openstack }}"
+
+    - name: Create /etc/osism-ci-image file
+      ansible.builtin.copy:
+        content: 1
+        dest: /etc/osism-ci-image
+        owner: root
+        group: root
+        mode: 0644
