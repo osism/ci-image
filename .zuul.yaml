@@ -25,6 +25,10 @@
           4mlPMzllxHXf5Cr2xpZKwA7cXcoUOEuliMo8AhmAxVr1kHK7zuBFgnua+ZWS9qY/I4A9K
           VllPsloDt1uvh2lXx9YHIIW4lkth5FCV/TQFx7FrV0z11MwHE9CKrEINxO5p8Q=
 
+- semaphore:
+    name: semaphore-ci-image-publish
+    max: 1
+
 - job:
     name: ci-image-build
     nodeset: ubuntu-jammy-large
@@ -41,6 +45,8 @@
 - job:
     name: ci-image-publish
     parent: ci-image-build
+    semaphores:
+      - name: semaphore-ci-image-publish
     vars:
       upload_image: true
     secrets:
