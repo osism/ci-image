@@ -3,27 +3,27 @@
     name: SECRET_CI_IMAGE
     data:
       MINIO_ACCESS_KEY: !encrypted/pkcs1-oaep
-        - ebbuljrxX7oApPDKYE2oSn6VSC9JBxFYqt4Sr+ppRGz67Bj2sa57hdoN90ls9sdmL9xj7
-          G4bSpKyO6DM7AOQBkQOSSfpe9jXU0y3hKtW5EY02ZFiCXa/btMxDLWwb3XJklNF2Cdxn7
-          XJdzTBpQAC+XDJGYtB4mGAlEX+Z+xB5THgNH4E+SIMwSC++9eRIu0Iq4kKvib/iF8NaSH
-          Ya6ohpdbQnbiDU+KJ6X0lOyTXcHOSSO4g1DVMS2ayIpxwHwOGraePpjaNqzXStUyxZWsC
-          dUzSwkMoSJFhqWe0o8c5Fy+FfXkisKEfF55ouESk+BKv26OO56EegaSWlkab9InLruD4V
-          BuPZZ/rJ/tzJVpauAfSaaXOu+h2b9ULlFjBXFbPvSpk1vg8ASITN5whEHiorYE6lh6Qp+
-          5O9JbXnYehzPPngvkkBdSWgMuNNcQJuNyGEHW7HznghyGVHizDEjgnY6YxHmEb225xz1h
-          +zJ9kYqSD5ibZEHix4kOqNGbbONLwZU0wV9aoGOmo7ToSt3L4LpDofwDYIgiEDqZ0O3S2
-          R1CWLTFTGacq07eHFIOrUxgq3YrVr+KZv1tKTmwWzqp5KmtND/yUYjwl9kqC8Z2fZWdKr
-          yg9j9ZpcC2cp9mJJw6JssUdu0j6EbKkO7JfrSDpO6nZ7hyPK7GhsOw2/ZW5grk=
+        - H4ogmsFc+LKgURU0lCjOULwqcgk5HFw4v36gj7tHwxDurVmjsg/JJnUMrAlWV0PhjlOzc
+          n+zO7fPfivcQyFrFAFg1wxAToguRWQyTc69VC6hy6iH3oif29GmMJwSv7RaIrP2azjOeE
+          hBoLpdudYbSgWH5iPI5ImCxCZG/Y5iSlAyVyi+FGDI2P5bSWmhaJ0ihm8ON9f9BMjJesd
+          f44vYEhRQcxuET4MnFWIfIi1H8+4qrOXTRa+EbJh1rbppCORj5ga/uOhYQXJzD/hAR4YM
+          eV8SDc1jHkrKciHl5hB0gybxGrGOWICBKTm7esFDNLTV1rSfneUAAk68WLYQ/QaJ2HAmD
+          2yo+DDRrmMvUCIPMhGRtgvzJ9m7sw6NEyqkFZXWIcnmJXMtzw59JyZBkzk9vyTzO2G8p6
+          2V2mP0FCjMq2pibgyNHVS+Thq8i2ha+lYdpakK1O/rbU6EbLx0IAyxa/oNxUCVb27wKkB
+          AtgPOw2ZwPHruiciYAdAK3dsUaeHEkALgokeC4ZaeQKMZ/B7vu11kOnVB0UMXcD79usWZ
+          K+S2bDnA2PD8PqJ9L7jh9YHVJboCTWbXypSUaSgH4YLsObjT+Ph4+4WE3upIFNx5PC3CA
+          ThBanBLWdQRVeKYKGAd4FBC/buu31hqZC0/HtZXJ+iyGyY7YE7FUvZV2BUDJOA=
       MINIO_SECRET_KEY: !encrypted/pkcs1-oaep
-        - t2dRqzpa/uMMzRnofWeNH1X4cmJJVuXCuYAzZAHix3eY3U6ELn7+z0A/FN0TsaIFhV+qX
-          b1RLwgRq/C2I0r+uAFGi2SDp9he44QcDrkpq6/NClTl1eEvkfemPEGMZeI+/d3v4/BASl
-          yGj4H3jhvJ112vxYRuPKBnAwOoujSTH1n487GIl8oUI7zEaxqpqFhzlC82NPOZuz+w0Em
-          BjylLTCBVh8a8lGTZa8RML8uZtInfAzAVh2UjtTjNKZCKEemXKkp0UYwgnfDNHcn/eZBa
-          kYcWg94KGAwVowGfU9LTe/p5YT8FvnjptuQIAQsFF1a57/v9+boIOXGZdmrfEe03KLGXB
-          oX4AAJeSNgXz1R9t8kWMnNrEadblc6s81GnwIxqMebL6FwOkxFiUuD83tabO5NsOOk/Y8
-          4dfwvq4o9+hiPuJS/fkdhHMlFUdHYuGRR/xncXQeLFxixrdkGXZH6mjy8INJSeZUq5y+r
-          Q69aIRfugJZKuda/DJU5RdgVCEjRVjJXQdwlksZsGxqyftop8ldRv3ko3RQS8GvLX2IoC
-          rBmh1K4hnW7geYpJl4yx8g/yqt8B26OO0/2NXtT8RWHR9XK1pmZchDVa7sMOA/IDKvhCU
-          B0FP2x0UAXEZkoCTaoTqefc9EWi8UNmwlLLDXI9hm0R/4GqQgJcA2QXyglSVpE=
+        - Mc27N0FQcejh9Z3PnablNK0MyVMaCotoFV/gXJ+z6FjD35SSS/5SvnT1Kjlk/fPIYPiQG
+          DgySP047oNgcrMerPGRWoHNYowukxowYAiYbflW+kdJsunYBE4qAgzpz2dGBbTAJX42q/
+          8Bf+dyi+yVTOx4Yx2Wwbq+r9v6ci8viycvsSme/Ecw5z3raOc4ohDfNxxk1DPZhkuK4nT
+          AkXUYPUBrIZgiNZ6DbzyM3/HMom2+7VdLbCJqyouChXzH8oTvdVLZNEAUTohfKEBWgp2Y
+          giulLVLsVX3OiFPb2EL7y7Slg9UNqDVNtzZ4+w0EHujdeSqjYfYa6NuOrujiFyvthCb3Z
+          Y0mUjm9vd9OtjO5UANbrEy2d9QEtakX366Vem7R3QC+KGAU3O5NdhSrcUYhK4YUGsx7EV
+          y/h898KVcK495EiNDtK94ltR0FnO6P+oXymTmxkrP/Q6Fx0lCty7LqKLAnJbEX1Ic85ae
+          oUgaBZepxUEeAh0wgsr9KJo9+0/zweIDH7iBSwZRiUuWfa62PXbts8q4HGFQStwEle8sq
+          4mlPMzllxHXf5Cr2xpZKwA7cXcoUOEuliMo8AhmAxVr1kHK7zuBFgnua+ZWS9qY/I4A9K
+          VllPsloDt1uvh2lXx9YHIIW4lkth5FCV/TQFx7FrV0z11MwHE9CKrEINxO5p8Q=
 
 - job:
     name: ci-image-build
