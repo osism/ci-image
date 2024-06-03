@@ -23,9 +23,10 @@
 
           qemu-img info osism-ci-image.qcow2
           sha256sum osism-ci-image.qcow2 > osism-ci-image.qcow2.CHECKSUM
+      changed_when: true
 
     - name: Run upload script
-      ansible.builtin.shell:
+      ansible.builtin.shell:  # noqa command-instead-of-module
         executable: /bin/bash
         chdir: "{{ zuul.project.src_dir }}"
         cmd: |
@@ -34,5 +35,6 @@
           ./mc alias set minio https://swift.services.a.regiocloud.tech {{ minio.MINIO_ACCESS_KEY | trim }} {{ minio.MINIO_SECRET_KEY | trim }}
           ./mc cp osism-ci-image.qcow2 minio/osism-ci-image
           ./mc cp osism-ci-image.qcow2.CHECKSUM minio/osism-ci-image
-      when: upload_image|bool
+      when: upload_image | bool
       no_log: true
+      changed_when: true

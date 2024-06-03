@@ -59,7 +59,9 @@
     default-branch: main
     check:
       jobs:
+        - ansible-lint
         - ci-image-build
+        - yamllint
     post:
       jobs:
         - ci-image-publish:

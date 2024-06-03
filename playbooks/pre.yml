@@ -18,3 +18,4 @@
 
           sudo apt-get update
           sudo apt-get install -y lftp kpartx qemu-utils squashfs-tools
+      changed_when: true
