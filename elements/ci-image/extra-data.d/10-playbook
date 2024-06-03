@@ -8,5 +8,5 @@ set -o pipefail
 
 [ -n "$TMP_HOOKS_PATH" ] || die "Temp hook path not set"
 
-cat playbooks/diskimage.yml > $TMP_HOOKS_PATH/diskimage.yml
-cat playbooks/locales.yml > $TMP_HOOKS_PATH/locales.yml
+cat files/diskimage.yml > $TMP_HOOKS_PATH/diskimage.yml
+cat files/locales.yml > $TMP_HOOKS_PATH/locales.yml

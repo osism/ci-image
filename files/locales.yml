@@ -11,23 +11,24 @@
 
   tasks:
     - name: Select locales to be generated
-      locale_gen:
+      community.general.locale_gen:
         name: "{{ item }}"
         state: present
       loop: "{{ locales_generated }}"
       notify: Reconfigure locales
 
     - name: Set default locale
-      lineinfile:
+      ansible.builtin.lineinfile:
         dest: "/etc/default/locale"
         regexp: "^LANG="
         line: "LANG={{ locales_default }}"
       notify: Reconfigure locales
 
     - name: Update locale
-      command: update-locale LANG={{ locales_default }} LC_CTYPE={{ locales_default }}
+      ansible.builtin.command: update-locale LANG={{ locales_default }} LC_CTYPE={{ locales_default }}
+      changed_when: true
 
   handlers:
     - name: Reconfigure locales
-      command: dpkg-reconfigure -f noninteractive locales
-
+      ansible.builtin.command: dpkg-reconfigure -f noninteractive locales
+      changed_when: true
