@@ -1,5 +1,16 @@
 {
   "extends": [
     "github>osism/renovate-config"
+  ],
+  "regexManagers":[
+     {
+      "fileMatch":[
+        "^files\\/diskimage.yml$"
+      ],
+      "matchStrings":[
+        "# renovate: datasource=(?<datasource>github-releases) depName=(?<depName>.*?)\n.*?docker_version: '5:(?<currentValue>.*?)'"
+      ],
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    }
   ]
 }
