@@ -37,7 +37,8 @@
     docker_configure_storage_driver: true
     docker_storage_driver: overlay2
     docker_user: dragon
-    docker_version: "5:26.1.2"
+    # renovate: datasource=github-releases depName=moby/moby
+    docker_version: '5:26.1.2'
     docker_facts: false
 
   roles:
