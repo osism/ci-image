@@ -18,13 +18,18 @@
 
   roles:
     - osism.commons.operator
+    - osism.commons.systohc
+    - osism.commons.configfs
     - osism.commons.packages
+    - osism.commons.sysctl
+    - osism.commons.limits
+    - osism.commons.services
     - osism.commons.motd
     - osism.services.rng
     - osism.commons.cleanup
     - osism.services.chrony
-    - osism.services.lldpd
     - osism.services.journald
+    - osism.services.lldpd
 
 - name: Apply role docker
   hosts: localhost
@@ -37,6 +42,15 @@
     docker_configure_storage_driver: true
     docker_storage_driver: overlay2
     docker_user: dragon
+    docker_opts:
+      max-concurrent-downloads: 20
+    docker_insecure_registries:
+      # Pass through cache for Docker Hub
+      - nexus.testbed.osism.xyz:8191
+      # Pass through cache for Quay
+      - nexus.testbed.osism.xyz:8192
+      # Pass through cache for OSISM Harbor
+      - nexus.testbed.osism.xyz:8193
     # renovate: datasource=github-releases depName=moby/moby
     docker_version: '5:26.1.4'
     docker_facts: false
