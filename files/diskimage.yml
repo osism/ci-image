@@ -13,7 +13,7 @@
       - snapd
 
     required_packages_extra:
-      - linux-generic-hwe-22.04
+      - linux-generic-hwe-24.04
       - python3-netaddr
 
   roles:

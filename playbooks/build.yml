@@ -2,6 +2,9 @@
 - name: Build image
   hosts: all
 
+  vars:
+    python_venv_dir: /tmp/venv
+
   tasks:
     - name: Run build script
       ansible.builtin.shell:
@@ -10,10 +13,12 @@
         cmd: |
           set -e
           set -x
-          export PATH=/home/zuul/.local/bin:$PATH
+
+          source {{ python_venv_dir }}/bin/activate
+
           export ELEMENTS_PATH=./elements
           export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive, OpenStack"
-          export DIB_RELEASE=jammy
+          export DIB_RELEASE=noble
 
           disk-image-create \
             -a amd64 \

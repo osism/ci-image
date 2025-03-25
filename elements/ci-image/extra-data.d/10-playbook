@@ -9,4 +9,3 @@ set -o pipefail
 [ -n "$TMP_HOOKS_PATH" ] || die "Temp hook path not set"
 
 cat files/diskimage.yml > $TMP_HOOKS_PATH/diskimage.yml
-cat files/locales.yml > $TMP_HOOKS_PATH/locales.yml
