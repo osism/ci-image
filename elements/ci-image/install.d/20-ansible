@@ -10,6 +10,8 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US
 export LC_ALL=
 
+export PATH=/root/.local/bin:$PATH
+
 # install required ansible collections
 
 ansible-galaxy collection install --collections-path /usr/share/ansible/collections ansible.netcommon
