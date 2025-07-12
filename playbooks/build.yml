@@ -35,8 +35,8 @@
         executable: /bin/bash
         chdir: "{{ zuul.project.src_dir }}"
         cmd: |
-          sed -i '' "s/YYYYMMDD/$(date +%Y%m%d)/g; s/YYYY-MM-DD/$(date +%Y-%m-%d)/g" .images.yml
-          sed -i '' "s/CHECKSUM/$(awk '{print $1}' osism-ci-image.qcow2.CHECKSUM)/g" .images.yml
+          sed -i "s/YYYYMMDD/$(date +%Y%m%d)/g; s/YYYY-MM-DD/$(date +%Y-%m-%d)/g" .images.yml
+          sed -i "s/CHECKSUM/$(awk '{print $1}' osism-ci-image.qcow2.CHECKSUM)/g" .images.yml
           wget https://dl.min.io/client/mc/release/linux-amd64/mc
           chmod +x mc
           ./mc alias set minio https://swift.services.a.regiocloud.tech {{ minio.MINIO_ACCESS_KEY | trim }} {{ minio.MINIO_SECRET_KEY | trim }}
