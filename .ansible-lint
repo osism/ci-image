@@ -3,7 +3,3 @@ exclude_paths:
   - files/diskimage.yml
 mock_roles:
   - ensure-pip
-skip_list:
-  - yaml
-warn_list:
-  - dummy
